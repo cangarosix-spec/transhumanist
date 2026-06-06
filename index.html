@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRANSHUMANIST – Vodič za svjesnu evoluciju | Joe Lann</title>
+<meta name="description" content="Knjiga koja mijenja perspektivu. Dugovječnost, AI, genetika, kiborgizacija – sve što dolazi, sada u tvojim rukama. Joe Lann.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Syne:wght@300;400;500;600&family=Syne+Mono&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cyan: #00C8FF;
+  --cyan-dim: #0097BF;
+  --cyan-glow: rgba(0, 200, 255, 0.15);
+  --navy: #030B18;
+  --navy-2: #060F1E;
+  --navy-3: #0A1628;
+  --navy-4: #0D1F38;
+  --text: #D8E8F5;
+  --text-dim: #7A9BB5;
+  --white: #FFFFFF;
+  --gold: #C8A96E;
+  --border: rgba(0, 200, 255, 0.12);
+  --border-bright: rgba(0, 200, 255, 0.35);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--navy);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ─── NOISE TEXTURE OVERLAY ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.5;
+}
+
+/* ─── TYPOGRAPHY ─── */
+h1, h2, h3 { font-family: 'Orbitron', monospace; line-height: 1.2; }
+.mono { font-family: 'Syne Mono', monospace; }
+
+/* ─── NAVIGATION ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  padding: 18px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(3,11,24,0.95) 60%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s;
+}
+.nav-logo {
+  font-family: 'Orbitron', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: 3px;
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--cyan); }
+.nav-cta {
+  background: transparent;
+  border: 1px solid var(--cyan);
+  color: var(--cyan) !important;
+  padding: 8px 20px;
+  border-radius: 2px;
+  font-family: 'Orbitron', monospace;
+  font-size: 11px !important;
+  letter-spacing: 2px !important;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.nav-cta:hover { background: var(--cyan); color: var(--navy) !important; }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+  padding: 120px 80px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(0,200,255,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: 10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(0,100,200,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content { position: relative; z-index: 2; }
+.hero-eyebrow {
+  font-family: 'Syne Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--cyan);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 40px; height: 1px;
+  background: var(--cyan);
+}
+h1.hero-title {
+  font-size: clamp(38px, 5vw, 62px);
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 8px;
+  letter-spacing: 4px;
+  background: linear-gradient(135deg, #fff 0%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-subtitle {
+  font-size: 15px;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+  font-style: italic;
+}
+.hero-description {
+  font-size: 18px;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 48px;
+  max-width: 500px;
+}
+.hero-description strong { color: var(--cyan); font-weight: 600; }
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+.stat { }
+.stat-number {
+  font-family: 'Orbitron', monospace;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--cyan);
+  display: block;
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+}
+
+.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--cyan) 0%, #0080CC 100%);
+  color: var(--navy);
+  border: none;
+  padding: 16px 36px;
+  font-family: 'Orbitron', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  transition: all 0.25s;
+  box-shadow: 0 0 30px rgba(0,200,255,0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 50px rgba(0,200,255,0.5);
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-bright);
+  padding: 15px 32px;
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.25s;
+}
+.btn-secondary:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  background: var(--cyan-glow);
+}
+
+/* ─── BOOK COVER ─── */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+.book-wrapper {
+  position: relative;
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50% { transform: translateY(-16px) rotate(-2deg); }
+}
+.book-cover {
+  width: 320px;
+  border-radius: 4px 16px 16px 4px;
+  box-shadow:
+    -8px 8px 0 rgba(0,0,0,0.4),
+    0 30px 80px rgba(0,0,0,0.7),
+    0 0 60px rgba(0,200,255,0.15),
+    inset -3px 0 10px rgba(0,0,0,0.3);
+  display: block;
+}
+.book-glow {
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(ellipse, rgba(0,200,255,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.book-badge {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  background: var(--gold);
+  color: var(--navy);
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 10px 14px;
+  text-align: center;
+  line-height: 1.4;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  width: 76px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── SECTION BASE ─── */
+section { padding: 100px 80px; }
+.section-tag {
+  font-family: 'Syne Mono', monospace;
+  font-size: 11px;
+  color: var(--cyan);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 16px;
+}
+.section-title {
+  font-size: clamp(24px, 3vw, 38px);
+  color: var(--white);
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+.section-line {
+  width: 60px; height: 2px;
+  background: linear-gradient(to right, var(--cyan), transparent);
+  margin-bottom: 48px;
+}
+
+/* ─── ABOUT BOOK ─── */
+.about {
+  background: var(--navy-2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.about-text p {
+  color: var(--text);
+  margin-bottom: 20px;
+  font-size: 17px;
+  line-height: 1.85;
+}
+.about-text p strong { color: var(--cyan); }
+.pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.pillar {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px 24px;
+  border: 1px solid var(--border);
+  background: rgba(0,200,255,0.02);
+  border-radius: 4px;
+  transition: all 0.25s;
+}
+.pillar:hover {
+  border-color: var(--border-bright);
+  background: var(--cyan-glow);
+  transform: translateX(4px);
+}
+.pillar-icon {
+  font-size: 24px;
+  min-width: 36px;
+  text-align: center;
+}
+.pillar-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--cyan);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.pillar-desc { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+
+/* ─── CHAPTERS ─── */
+.chapters { background: var(--navy); }
+.chapters-inner { max-width: 1200px; margin: 0 auto; }
+.chapters-header { margin-bottom: 60px; }
+.chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.chapter-card {
+  border: 1px solid var(--border);
+  padding: 28px 24px;
+  border-radius: 4px;
+  background: var(--navy-2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: default;
+}
+.chapter-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: linear-gradient(to bottom, var(--cyan), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.chapter-card:hover {
+  border-color: var(--border-bright);
+  background: var(--navy-3);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+.chapter-card:hover::before { opacity: 1; }
+.chapter-number {
+  font-family: 'Orbitron', monospace;
+  font-size: 10px;
+  color: var(--cyan);
+  letter-spacing: 3px;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+.chapter-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+}
+.chapter-desc { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+
+/* ─── AUTHOR ─── */
+.author {
+  background: var(--navy-2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.author-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.author-photo-wrap { position: relative; }
+.author-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 4px;
+  border: 1px solid var(--border-bright);
+  background: var(--navy-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 72px;
+  box-shadow: 0 0 40px rgba(0,200,255,0.1);
+  overflow: hidden;
+}
+.author-photo img { width: 100%; height: 100%; object-fit: cover; }
+.author-name {
+  font-family: 'Orbitron', monospace;
+  font-size: 22px;
+  color: var(--white);
+  margin-bottom: 6px;
+  letter-spacing: 2px;
+}
+.author-role {
+  font-family: 'Syne Mono', monospace;
+  font-size: 12px;
+  color: var(--cyan);
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+.author-bio { font-size: 16px; color: var(--text); line-height: 1.85; }
+.author-bio p { margin-bottom: 16px; }
+
+/* ─── TESTIMONIALS ─── */
+.testimonials { background: var(--navy); }
+.testimonials-inner { max-width: 1100px; margin: 0 auto; }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.testimonial {
+  border: 1px solid var(--border);
+  padding: 32px 28px;
+  border-radius: 4px;
+  background: var(--navy-2);
+  position: relative;
+}
+.testimonial::before {
+  content: '"';
+  position: absolute;
+  top: 16px; left: 24px;
+  font-size: 64px;
+  color: var(--cyan);
+  opacity: 0.2;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+.testimonial-text {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.75;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+.testimonial-author {
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  color: var(--cyan);
+  letter-spacing: 1px;
+}
+.testimonial-role { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+.stars { color: var(--gold); font-size: 14px; margin-bottom: 16px; letter-spacing: 2px; }
+
+/* ─── PRICING ─── */
+.pricing {
+  background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 100%);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.pricing-inner { max-width: 1100px; margin: 0 auto; }
+.pricing-subtitle {
+  font-size: 17px;
+  color: var(--text-dim);
+  max-width: 600px;
+  margin: 0 auto 60px;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+.price-card {
+  border: 1px solid var(--border);
+  padding: 40px 32px;
+  border-radius: 4px;
+  background: var(--navy-2);
+  transition: all 0.3s;
+  position: relative;
+  text-align: left;
+}
+.price-card.featured {
+  border-color: var(--cyan);
+  background: var(--navy-3);
+  box-shadow: 0 0 50px rgba(0,200,255,0.1);
+}
+.price-card.featured::before {
+  content: 'PREPORUČENO';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cyan);
+  color: var(--navy);
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 4px 14px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.price-card:hover:not(.featured) {
+  border-color: var(--border-bright);
+  transform: translateY(-4px);
+}
+.price-platform {
+  font-family: 'Syne Mono', monospace;
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.price-name {
+  font-family: 'Orbitron', monospace;
+  font-size: 17px;
+  color: var(--white);
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+.price-amount {
+  font-family: 'Orbitron', monospace;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--cyan);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.price-currency {
+  font-size: 20px;
+  vertical-align: super;
+  font-weight: 400;
+}
+.price-note {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-bottom: 28px;
+}
+.price-features { list-style: none; margin-bottom: 32px; }
+.price-features li {
+  font-size: 14px;
+  color: var(--text);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.price-features li::before {
+  content: '→';
+  color: var(--cyan);
+  font-family: 'Syne Mono', monospace;
+  flex-shrink: 0;
+}
+.price-features li:last-child { border-bottom: none; }
+.price-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 14px;
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.price-btn-primary {
+  background: linear-gradient(135deg, var(--cyan), #0080CC);
+  color: var(--navy);
+  border: none;
+  box-shadow: 0 0 20px rgba(0,200,255,0.25);
+}
+.price-btn-primary:hover { box-shadow: 0 0 40px rgba(0,200,255,0.4); transform: translateY(-1px); }
+.price-btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-bright);
+}
+.price-btn-secondary:hover { border-color: var(--cyan); color: var(--cyan); }
+
+.pricing-guarantee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text-dim);
+}
+.guarantee-icon { font-size: 20px; }
+
+/* ─── FAQ ─── */
+.faq {
+  background: var(--navy-2);
+  border-top: 1px solid var(--border);
+}
+.faq-inner { max-width: 800px; margin: 0 auto; }
+.faq-list { margin-top: 48px; }
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.faq-q {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 24px 0;
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: color 0.2s;
+}
+.faq-q:hover { color: var(--cyan); }
+.faq-arrow {
+  color: var(--cyan);
+  font-family: 'Syne Mono', monospace;
+  font-size: 18px;
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+.faq-item.open .faq-arrow { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+  color: var(--text-dim);
+  font-size: 15px;
+  line-height: 1.8;
+}
+.faq-item.open .faq-a { max-height: 300px; padding-bottom: 24px; }
+
+/* ─── CTA STRIP ─── */
+.cta-strip {
+  background: linear-gradient(135deg, var(--navy-4) 0%, #0A1F3A 100%);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-strip::before {
+  content: 'TRANSHUMANIST';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Orbitron', monospace;
+  font-size: 180px;
+  font-weight: 900;
+  color: rgba(0,200,255,0.03);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: 20px;
+}
+.cta-strip h2 {
+  font-size: clamp(22px, 3vw, 36px);
+  color: var(--white);
+  margin-bottom: 16px;
+  position: relative;
+  letter-spacing: 2px;
+}
+.cta-strip p {
+  color: var(--text-dim);
+  font-size: 17px;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.cta-strip .btn-primary { position: relative; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--navy-2);
+  border-top: 1px solid var(--border);
+  padding: 60px 80px 40px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 48px;
+}
+.footer-brand .footer-logo {
+  font-family: 'Orbitron', monospace;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--cyan);
+  letter-spacing: 4px;
+  display: block;
+  margin-bottom: 16px;
+}
+.footer-brand p { font-size: 14px; color: var(--text-dim); line-height: 1.7; max-width: 280px; }
+.footer-col h4 {
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+.footer-col ul a:hover { color: var(--cyan); }
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.footer-bottom a { color: var(--text-dim); text-decoration: none; }
+.footer-bottom a:hover { color: var(--cyan); }
+
+/* ─── SCROLL ANIMATIONS ─── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in-delay-1 { transition-delay: 0.1s; }
+.fade-in-delay-2 { transition-delay: 0.2s; }
+.fade-in-delay-3 { transition-delay: 0.3s; }
+.fade-in-delay-4 { transition-delay: 0.4s; }
+
+/* ─── SCANNING LINE ANIMATION ─── */
+@keyframes scan {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+.hero-visual::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(0,200,255,0.4), transparent);
+  animation: scan 4s linear infinite;
+  pointer-events: none;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 100px 32px 60px; text-align: center; }
+  .hero-eyebrow { justify-content: center; }
+  .hero-description { margin-left: auto; margin-right: auto; }
+  .hero-stats { justify-content: center; }
+  .hero-buttons { justify-content: center; }
+  .hero-visual { order: -1; }
+  .book-cover { width: 220px; }
+  section { padding: 70px 32px; }
+  .about-grid, .author-inner { grid-template-columns: 1fr; gap: 40px; }
+  .chapters-grid { grid-template-columns: 1fr 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .cta-strip { padding: 60px 32px; }
+  footer { padding: 40px 32px; }
+}
+
+@media (max-width: 600px) {
+  .chapters-grid { grid-template-columns: 1fr; }
+  .hero-stats { flex-wrap: wrap; gap: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav>
+  <a href="#" class="nav-logo">TRANSHUMANIST</a>
+  <ul class="nav-links">
+    <li><a href="#o-knjizi">O knjizi</a></li>
+    <li><a href="#poglavlja">Sadržaj</a></li>
+    <li><a href="#autor">Autor</a></li>
+    <li><a href="#recenzije">Recenzije</a></li>
+    <li><a href="#kupi" class="nav-cta">KUPI KNJIGU</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Joe Lann · 2026.</div>
+    <h1 class="hero-title">TRANS<br>HUMANIST</h1>
+    <p class="hero-subtitle">Vodič za svjesnu evoluciju u doba umjetne inteligencije</p>
+    <p class="hero-description">
+      Dugovječnost do 150 godina. Genska terapija. Kiborgizacija. Upload uma.<br><br>
+      <strong>Ovo nije fikcija.</strong> Ovo je priručnik za one koji hoće razumjeti — i djelovati — dok još ima vremena.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number">11</span>
+        <span class="stat-label">Poglavlja</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">138</span>
+        <span class="stat-label">Stranica</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">2026</span>
+        <span class="stat-label">Izdanje</span>
+      </div>
+    </div>
+    <div class="hero-buttons">
+      <!-- ↓ Zamijeni href s tvojim Stripe Payment Link URL-om -->
+      <a href="https://buy.stripe.com/TVOJ_LINK_OVDJE" class="btn-primary" id="btn-kupi-hero">KUPI E-KNJIGU</a>
+      <a href="#o-knjizi" class="btn-secondary">SAZNAJ VIŠE</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="book-wrapper">
+      <div class="book-glow"></div>
+      <!-- ↓ Zamijeni src s putanjom do naslovnice ako hostaš slike -->
+      <img class="book-cover"
+        src="cover.jpg"
+        alt="TRANSHUMANIST – knjiga naslovnica"
+        onerror="this.style.display='none'; this.parentElement.querySelector('.book-placeholder').style.display='flex'">
+      <div class="book-placeholder" style="display:none; width:320px; height:453px; background:linear-gradient(135deg,#0D2137,#0A3D62); border-radius:4px 16px 16px 4px; align-items:center; justify-content:center; flex-direction:column; gap:16px; border:1px solid rgba(0,200,255,0.3);">
+        <span style="font-family:'Orbitron',monospace;font-size:22px;font-weight:900;color:#00C8FF;letter-spacing:4px;text-align:center;padding:0 20px;">TRANS<br>HUMANIST</span>
+        <span style="font-family:'Syne',sans-serif;font-size:11px;color:#7A9BB5;letter-spacing:2px;">JOE LANN</span>
+      </div>
+      <div class="book-badge">NOVO<br>2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT BOOK ─── -->
+<section class="about" id="o-knjizi">
+  <div class="about-grid">
+    <div class="about-text fade-in">
+      <span class="section-tag">O knjizi</span>
+      <h2 class="section-title">Zašto ova knjiga — zašto sada?</h2>
+      <div class="section-line"></div>
+      <p>
+        Živimo u trenutku koji će budući povjesničari opisati kao <strong>najvažniju tranzicijsku točku u ljudskoj povijesti</strong>. Tehnologije koje su nekad bile fikcija — uređivanje gena, neuralni implantati, AI koji nadmašuje ljude — postaju stvarnost u realnom vremenu.
+      </p>
+      <p>
+        <strong>TRANSHUMANIST</strong> nije sci-fi spekulacija. Svaki podatak, svaka tvrdnja potkrijepljena je istraživanjima koja se odvijaju upravo sada — na Harvardu, u Silicijskoj dolini, u Pekingu.
+      </p>
+      <p>
+        Knjiga je napisana tako da je razumije svaki čovjek koji hoće biti na ispravnoj strani promjene — bez doktorata, bez tehničkog predznanja. Samo s radoznalošću i hrabrošću da gleda u budućnost otvorenih očiju.
+      </p>
+    </div>
+    <div class="pillars fade-in fade-in-delay-2">
+      <div class="pillar">
+        <div class="pillar-icon">⏱</div>
+        <div>
+          <div class="pillar-title">Dugovječnost</div>
+          <div class="pillar-desc">Zašto staramo i kako to možemo promijeniti. Sinclair, NMN, biološka dob.</div>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🧬</div>
+        <div>
+          <div class="pillar-title">Genetika & CRISPR</div>
+          <div class="pillar-desc">Uređivanje DNK — od liječenja bolesti do dizajniranja djece.</div>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🤖</div>
+        <div>
+          <div class="pillar-title">Kiborgizacija</div>
+          <div class="pillar-desc">Neuralink, implantati, proširena stvarnost — čovjek i stroj kao jedno.</div>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🧠</div>
+        <div>
+          <div class="pillar-title">Upload uma</div>
+          <div class="pillar-desc">Digitalna besmrtnost — teorija, filozofija i tehničke prepreke.</div>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">💊</div>
+        <div>
+          <div class="pillar-title">Biohacking</div>
+          <div class="pillar-desc">Nootropici, suplementi, intermittent fasting — što zaista radi.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CHAPTERS ─── -->
+<section class="chapters" id="poglavlja">
+  <div class="chapters-inner">
+    <div class="chapters-header fade-in">
+      <span class="section-tag">Sadržaj knjige</span>
+      <h2 class="section-title">11 poglavlja koja mijenjaju perspektivu</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="chapters-grid">
+      <div class="chapter-card fade-in">
+        <div class="chapter-number">UVOD</div>
+        <div class="chapter-title">Čovjek 2.0</div>
+        <div class="chapter-desc">Ana iz 2026. — kako izgleda svakodnevica već-transhumaniziranog čovjeka. Dobrodošli u budućnost koja je već počela.</div>
+      </div>
+      <div class="chapter-card fade-in fade-in-delay-1">
+        <div class="chapter-number">POGLAVLJE 01</div>
+        <div class="chapter-title">Besmrtnost kao opcija</div>
+        <div class="chapter-desc">Biologija starenja, Hallmarks of Aging, David Sinclair i zašto 150 godina nije utopija.</div>
+      </div>
+      <div class="chapter-card fade-in fade-in-delay-2">
+        <div class="chapter-number">POGLAVLJE 02</div>
+        <div class="chapter-title">Inženjering savršenstva</div>
+        <div class="chapter-desc">CRISPR-Cas9, genetsko uređivanje, etičke granice i He Jiankui skandal koji je uzdrmao svijet.</div>
+      </div>
+      <div class="chapter-card fade-in fade-in-delay-3">
+        <div class="chapter-number">POGLAVLJE 03</div>
+        <div class="chapter-title">Kiborg među nama</div>
+        <div class="chapter-desc">Od pacemakera do Neuralinka — granica između čovjeka i stroja nestaje brže nego mislimo.</div>
+      </div>
+      <div class="chapter-card fade-in">
+        <div class="chapter-number">POGLAVLJE 04</div>
+        <div class="chapter-title">Digitalna besmrtnost</div>
+        <div class="chapter-desc">Upload uma, digitalni blizanci, svjesnost kao informacija. Je li "ti" samo pattern koji možemo kopirati?</div>
+      </div>
+      <div class="chapter-card fade-in fade-in-delay-1">
+        <div class="chapter-number">POGLAVLJE 05</div>
+        <div class="chapter-title">Superhrana za mozak</div>
+        <div class="chapter-desc">Nootropici, neurohacking, metode koje zaista rade. Fokus, pamćenje, kreativnost na naredbu.</div>
+      </div>
+      <div class="chapter-card fade-in fade-in-delay-2">
+        <div class="chapter-number">POGLAVLJE 06</div>
+        <div class="chapter-title">Tijelo kao projekt</div>
+        <div class="chapter-desc">Biohacking protokoli: post, kriokomora, sauna, spavanje. Osobni plan dugovječnosti.</div>
+      </div>
+      <div class="chapter-card fade-in fade-in-delay-3">
+        <div class="chapter-number">POGLAVLJE 07</div>
+        <div class="chapter-title">Umjetna inteligencija</div>
+        <div class="chapter-desc">AGI, singularnost, Bostromov problem kontrole. Trebamo li se bojati ili slaviti?</div>
+      </div>
+      <div class="chapter-card fade-in">
+        <div class="chapter-number">POGLAVLJE 08</div>
+        <div class="chapter-title">Etika evolucije</div>
+        <div class="chapter-desc">Tko će prvi živjeti 150 godina? Nejednakost, neurorava, pravo na poboljšanje.</div>
+      </div>
+      <div class="chapter-card fade-in fade-in-delay-1">
+        <div class="chapter-number">POGLAVLJE 09</div>
+        <div class="chapter-title">Svemir kao playground</div>
+        <div class="chapter-desc">Transhumanizam van Zemlje — Musk, Mars, i zašto je kolonizacija egzistencijalni imperativ.</div>
+      </div>
+      <div class="chapter-card fade-in fade-in-delay-2">
+        <div class="chapter-number">POGLAVLJE 10</div>
+        <div class="chapter-title">Ray Kurzweil 1999.</div>
+        <div class="chapter-desc">Njegove prognoze iz 1999. i što se od toga ostvarilo. Eksponencijalni rast koji smo podcjenjivali.</div>
+      </div>
+      <div class="chapter-card fade-in fade-in-delay-3" style="border-color:rgba(0,200,255,0.25);">
+        <div class="chapter-number">POGLAVLJE 11 · KRAJ</div>
+        <div class="chapter-title">Poslije evolucije — revolucija</div>
+        <div class="chapter-desc">Što transhumanizam znači za tebe, danas, u ovom trenutku. Poziv na djelovanje.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── AUTHOR ─── -->
+<section class="author" id="autor">
+  <div class="author-inner">
+    <div class="author-photo-wrap fade-in">
+      <div class="author-photo">
+        <!-- ↓ Dodaj svoju sliku: <img src="autor.jpg" alt="Joe Lann"> -->
+        👤
+      </div>
+    </div>
+    <div class="fade-in fade-in-delay-1">
+      <span class="section-tag">Autor</span>
+      <div class="author-name">Joe Lann</div>
+      <div class="author-role">Pisac · Istraživač · Transhumanist</div>
+      <div class="author-bio">
+        <p>Joe Lann piše na razmeđu znanosti, filozofije i budućnosti. Godinama prati najnovija istraživanja iz područja dugovječnosti, neuroznanosti i artificijalne inteligencije — i prevodi ih u jezik koji svaki čovjek može razumjeti i primijeniti.</p>
+        <p>Vjeruje da smo mi prva generacija kojoj je biološka besmrtnost u dometu — i da je naša odgovornost razumjeti što to znači prije nego li se dogodi.</p>
+        <p><strong style="color:var(--cyan)">TRANSHUMANIST</strong> je rezultat višegodišnjeg istraživanja, razgovora s najemisivnijim umovima u polju i osobnog iskustva biohackinga i optimizacije.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="testimonials" id="recenzije">
+  <div class="testimonials-inner">
+    <div class="fade-in" style="text-align:center; margin-bottom:60px;">
+      <span class="section-tag">Recenzije čitatelja</span>
+      <h2 class="section-title">Što kažu oni koji su pročitali</h2>
+      <div class="section-line" style="margin:20px auto;"></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Nisam mogao prestati čitati. Svako poglavlje otvorilo mi je nova pitanja o tome što znači biti čovjek u 21. stoljeću. Obavezna lektira."</p>
+        <div class="testimonial-author">Marko T.</div>
+        <div class="testimonial-role">Softverski inženjer, Zagreb</div>
+      </div>
+      <div class="testimonial fade-in fade-in-delay-1">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Kao liječnik, impresioniran sam preciznošću s kojom autor obrađuje kompleksne teme. Preporučujem svima koji žele razumjeti kamo ide medicina."</p>
+        <div class="testimonial-author">Dr. Ivan K.</div>
+        <div class="testimonial-role">Internist, Sarajevo</div>
+      </div>
+      <div class="testimonial fade-in fade-in-delay-2">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Pročitao sam je za jednu večer. Napisana tako da je razumije i laik, a dovoljno duboka da fasciniria i stručnjaka. Rijetka kombinacija."</p>
+        <div class="testimonial-author">Ana V.</div>
+        <div class="testimonial-role">Poduzetnica, Split</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRICING ─── -->
+<section class="pricing" id="kupi">
+  <div class="pricing-inner">
+    <div class="fade-in">
+      <span class="section-tag">Nabavi knjigu</span>
+      <h2 class="section-title">Odaberi svoju verziju</h2>
+      <div class="section-line" style="margin:16px auto 0;"></div>
+    </div>
+    <p class="pricing-subtitle fade-in">Direktna kupovina donosi najveću podršku autoru. Sve opcije su dostupne odmah.</p>
+
+    <div class="pricing-grid">
+
+      <!-- STRIPE - DIREKTNO -->
+      <div class="price-card featured fade-in">
+        <div class="price-platform">Direktna kupovina</div>
+        <div class="price-name">E-knjiga PDF</div>
+        <div class="price-amount"><span class="price-currency">€</span>12<span style="font-size:20px">,99</span></div>
+        <div class="price-note">Plaćanje karticom · Isporuka odmah</div>
+        <ul class="price-features">
+          <li>PDF visoke rezolucije</li>
+          <li>Sve slike i QR kodovi</li>
+          <li>Doživotni pristup</li>
+          <li>Direktna podrška autoru</li>
+          <li>Potvrda na e-mail</li>
+        </ul>
+        <!-- ↓ Zamijeni href s tvojim Stripe Payment Link URL-om -->
+        <a href="https://buy.stripe.com/TVOJ_LINK_OVDJE" class="price-btn price-btn-primary">KUPI PUTEM STRIPE</a>
+      </div>
+
+      <!-- GUMROAD -->
+      <div class="price-card fade-in fade-in-delay-1">
+        <div class="price-platform">Gumroad</div>
+        <div class="price-name">E-knjiga PDF</div>
+        <div class="price-amount"><span class="price-currency">€</span>12<span style="font-size:20px">,99</span></div>
+        <div class="price-note">Plaćanje karticom ili PayPalom</div>
+        <ul class="price-features">
+          <li>PDF visoke rezolucije</li>
+          <li>Automatska isporuka</li>
+          <li>Plaćanje PayPalom</li>
+          <li>Sigurna kupovina</li>
+        </ul>
+        <!-- ↓ Zamijeni href s tvojim Gumroad linkom -->
+        <a href="https://gumroad.com/TVOJ_LINK_OVDJE" class="price-btn price-btn-secondary">KUPI PUTEM GUMROAD</a>
+      </div>
+
+      <!-- AMAZON / FIZIČKA -->
+      <div class="price-card fade-in fade-in-delay-2">
+        <div class="price-platform">Amazon · Knjižara</div>
+        <div class="price-name">Fizička knjiga</div>
+        <div class="price-amount"><span class="price-currency">€</span>19<span style="font-size:20px">,99</span></div>
+        <div class="price-note">Dostava 3–7 radnih dana</div>
+        <ul class="price-features">
+          <li>Tvrdi ili meki uvez</li>
+          <li>Dostava na adresu</li>
+          <li>Savršena za poklon</li>
+          <li>Dostupna u regiji</li>
+        </ul>
+        <!-- ↓ Zamijeni href s Amazon/knjižara linkom -->
+        <a href="https://amazon.com/TVOJ_LINK_OVDJE" class="price-btn price-btn-secondary">NARUČI FIZIČKU KOPIJU</a>
+      </div>
+
+    </div>
+
+    <div class="pricing-guarantee fade-in">
+      <span class="guarantee-icon">🔒</span>
+      <span>Sigurna kupovina · Zaštićeno plaćanje · Zadovoljstvo garantirano ili povrat novca u 14 dana</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section class="faq">
+  <div class="faq-inner">
+    <div class="fade-in">
+      <span class="section-tag">FAQ</span>
+      <h2 class="section-title">Često postavljana pitanja</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Trebam li tehničko predznanje da razumijem knjigu?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Ne. Knjiga je namjerno pisana tako da je razumije svaka radoznala osoba bez tehničkog ili znanstvenog predznanja. Složeni koncepti su objašnjeni kroz priče, analogije i primjere iz svakodnevnog života.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Je li e-knjiga dostupna odmah nakon kupovine?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Da. Nakon uspješne kupovine putem Stripe ili Gumroad platforme, PDF datoteka se automatski šalje na tvoj e-mail u roku nekoliko sekundi.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Mogu li kupiti knjige na poklon?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Naravno. Fizičku kopiju možeš naručiti i poslati na drugu adresu. Za e-knjige kao poklon — kontaktiraj nas putem e-maila i dogovorimo sve pojedinosti.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Postoji li mogućnost povrata novca?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Da. Ako u roku 14 dana od kupovine nisi zadovoljan knjigom, vraćamo ti puni iznos bez pitanja. Kontaktiraj nas na e-mail naveden u footeru.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Na koji jezik je knjiga napisana?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Knjiga je napisana na hrvatskom jeziku, razumljiva govornicima cijelog ex-YU područja.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Planira li se prijevod na engleski?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Prijevod je u planu. Prijavite se na newsletter kako biste bili prvi obaviješteni o dostupnosti engleske verzije.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA STRIP ─── -->
+<div class="cta-strip">
+  <h2>Poslije evolucije — revolucija.</h2>
+  <p>Prva generacija koja može birati između starenja i ne-starenja. Između čovjeka kakav jest i čovjeka kakav može biti. Ti si ta generacija.</p>
+  <!-- ↓ Zamijeni href s tvojim Stripe Payment Link URL-om -->
+  <a href="https://buy.stripe.com/TVOJ_LINK_OVDJE" class="btn-primary">NABAVI TRANSHUMANIST →</a>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo">TRANSHUMANIST</span>
+        <p>Vodič za svjesnu evoluciju u doba umjetne inteligencije. Autor: Joe Lann. Izdanje 2026.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigacija</h4>
+        <ul>
+          <li><a href="#o-knjizi">O knjizi</a></li>
+          <li><a href="#poglavlja">Sadržaj</a></li>
+          <li><a href="#autor">Autor</a></li>
+          <li><a href="#recenzije">Recenzije</a></li>
+          <li><a href="#kupi">Kupi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <!-- ↓ Zamijeni s tvojim podacima -->
+          <li><a href="mailto:info@transhumanist.hr">info@transhumanist.hr</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Joe Lann · Sva prava pridržana</span>
+      <span>
+        <a href="#">Uvjeti korištenja</a> ·
+        <a href="#">Politika privatnosti</a> ·
+        <a href="#">Povrat novca</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── SCROLL ANIMATIONS ───
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ─── FAQ TOGGLE ───
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ─── NAV SCROLL EFFECT ───
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.style.background = window.scrollY > 60
+    ? 'rgba(3,11,24,0.97)'
+    : 'linear-gradient(to bottom, rgba(3,11,24,0.95) 60%, transparent)';
+});
+
+// ─── SMOOTH INITIAL LOAD ───
+document.querySelector('.hero-content').style.animation = 'none';
+requestAnimationFrame(() => {
+  document.querySelector('.hero-content').style.opacity = '0';
+  document.querySelector('.hero-content').style.transform = 'translateY(24px)';
+  setTimeout(() => {
+    document.querySelector('.hero-content').style.transition = 'all 1s ease';
+    document.querySelector('.hero-content').style.opacity = '1';
+    document.querySelector('.hero-content').style.transform = 'translateY(0)';
+  }, 100);
+});
+</script>
+
+</body>
+</html>
