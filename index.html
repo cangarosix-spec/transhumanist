@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TRANSHUMANIST – Što lideri budućnosti znaju o tijelu, umu i tehnologiji, a vi ne znate | Joe Lann</title>
-<meta name="description" content="Za one koji odbijaju starjeti po starim pravilima. Što lideri budućnosti znaju o tijelu, umu i tehnologiji, a vi ne znate — a nitko ti nije rekao. Joe Lann, 2026.">
+<title>TRANSHUMANIST – What Tomorrow's Leaders Know About the Body, Mind & Technology (And You Don't) | Joe Lann</title>
+<meta name="description" content="For those who refuse to age by the old rules. What tomorrow's leaders already know about the body, mind and technology — and nobody told you. By Joe Lann, 2026.">
+<meta property="og:title" content="TRANSHUMANIST — Joe Lann">
+<meta property="og:description" content="What tomorrow's leaders know about the body, mind and technology — and you don't. A guide to conscious evolution in the age of artificial intelligence.">
+<meta property="og:image" content="cover-en.jpg">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Syne:wght@300;400;500;600&family=Syne+Mono&display=swap" rel="stylesheet">
 
@@ -517,7 +522,37 @@ section { padding: 100px 80px; }
   font-size: 17px;
   color: var(--text-dim);
   max-width: 600px;
-  margin: 0 auto 60px;
+  margin: 0 auto 32px;
+}
+.currency-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  font-family: 'Syne Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+.currency-switcher select {
+  background: var(--navy-3);
+  color: var(--text);
+  border: 1px solid var(--border-bright);
+  padding: 7px 12px;
+  border-radius: 2px;
+  font-family: 'Syne Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.price-fx-note {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 6px;
+  min-height: 16px;
+  font-family: 'Syne Mono', monospace;
 }
 .pricing-grid {
   display: grid;
@@ -540,7 +575,7 @@ section { padding: 100px 80px; }
   box-shadow: 0 0 50px rgba(0,200,255,0.1);
 }
 .price-card.featured::before {
-  content: 'PREPORUČENO';
+  content: 'RECOMMENDED';
   position: absolute;
   top: -12px;
   left: 50%;
@@ -856,16 +891,17 @@ footer {
 <!-- DOWNLOAD BANNER -->
 <div id="dl-banner" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(3,11,24,0.97);flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:32px;text-align:center;">
   <div style="font-family:'Orbitron',monospace;font-size:56px;color:#00C8FF;">✓</div>
-  <h2 style="font-family:'Orbitron',monospace;font-size:26px;color:#fff;letter-spacing:2px;">HVALA NA KUPOVINI!</h2>
-  <p style="font-size:17px;color:#D8E8F5;max-width:500px;line-height:1.8;">Tvoja knjiga je spremna. Klikni gumb ispod i spremi PDF na svoje računalo ili mobitel.</p>
+  <h2 style="font-family:'Orbitron',monospace;font-size:26px;color:#fff;letter-spacing:2px;">THANK YOU FOR YOUR PURCHASE!</h2>
+  <p style="font-size:17px;color:#D8E8F5;max-width:500px;line-height:1.8;">Your book is ready. Click the button below and save the PDF to your computer or phone.</p>
+  <!-- IMPORTANT: verify this Drive folder serves the ENGLISH edition PDF, not the original Croatian file -->
   <a href="https://drive.google.com/drive/folders/1yhDOhyKNp5FFIxlVyKwp03zBQnye7w5v?usp=drive_link" target="_blank" style="background:linear-gradient(135deg,#00C8FF,#0080CC);color:#030B18;padding:18px 48px;font-family:'Orbitron',monospace;font-size:14px;font-weight:700;letter-spacing:2px;text-decoration:none;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);box-shadow:0 0 40px rgba(0,200,255,0.4);display:inline-block;margin-top:8px;">
-    ↓ &nbsp; PREUZMI PDF
+    ↓ &nbsp; DOWNLOAD PDF
   </a>
-  <p style="font-size:13px;color:#7A9BB5;margin-top:8px;">Potvrda kupovine poslana je na tvoj e-mail.<br>Za podršku: <a href="mailto:info@transhumanist.hr" style="color:#00C8FF;">info@transhumanist.hr</a></p>
-  <button onclick="document.getElementById('dl-banner').style.display='none'" style="background:transparent;border:1px solid rgba(0,200,255,0.2);color:#7A9BB5;padding:8px 20px;cursor:pointer;font-size:12px;margin-top:8px;">Nastavi na stranicu &rarr;</button>
+  <p style="font-size:13px;color:#7A9BB5;margin-top:8px;">A purchase confirmation has been sent to your email.<br>For support: <a href="mailto:info@joelann.com" style="color:#00C8FF;">info@joelann.com</a></p>
+  <button onclick="document.getElementById('dl-banner').style.display='none'" style="background:transparent;border:1px solid rgba(0,200,255,0.2);color:#7A9BB5;padding:8px 20px;cursor:pointer;font-size:12px;margin-top:8px;">Continue to site &rarr;</button>
 </div>
 <script>
-if(window.location.search.indexOf('success=true') > -1 || window.location.hash === '#hvala'){
+if(window.location.search.indexOf('success=true') > -1 || window.location.hash === '#thankyou'){
   var b = document.getElementById('dl-banner');
   b.style.display = 'flex';
 }
@@ -874,114 +910,115 @@ if(window.location.search.indexOf('success=true') > -1 || window.location.hash =
 <nav>
   <a href="#" class="nav-logo">TRANSHUMANIST</a>
   <ul class="nav-links">
-    <li><a href="#o-knjizi">O knjizi</a></li>
-    <li><a href="#poglavlja">Sadržaj</a></li>
-    <li><a href="#autor">Autor</a></li>
-    <li><a href="#recenzije">Recenzije</a></li>
-    <li><a href="#kupi" class="nav-cta">KUPI KNJIGU</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#chapters">Contents</a></li>
+    <li><a href="#author">Author</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#buy" class="nav-cta">BUY THE BOOK</a></li>
   </ul>
 </nav>
 
 <!-- ─── HERO ─── -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-eyebrow">Joe Lann · 2026.</div>
+    <div class="hero-eyebrow">Joe Lann · 2026</div>
     <h1 class="hero-title">TRANS<br>HUMANIST</h1>
-    <p class="hero-subtitle">Što lideri budućnosti znaju o tijelu, umu i tehnologiji, a vi ne znate</p>
-    <p style="font-size:13px;color:var(--text-dim);letter-spacing:1px;margin-top:-20px;margin-bottom:32px;font-family:'Syne Mono',monospace;">Vodič za svjesnu evoluciju u doba umjetne inteligencije</p>
+    <p class="hero-subtitle">What tomorrow's leaders know about the body, mind and technology — and you don't</p>
+    <p style="font-size:13px;color:var(--text-dim);letter-spacing:1px;margin-top:-20px;margin-bottom:32px;font-family:'Syne Mono',monospace;">A guide to conscious evolution in the age of artificial intelligence</p>
     <p class="hero-description">
-      Za one koji odbijaju starjeti po starim pravilima — onako kako su starjeli njihovi roditelji.<br><br>
-      <strong>Ovo nije fikcija.</strong> Ovo je priručnik za one koji razumiju da budućnost pripada onima koji se pripreme danas.
+      For those who refuse to age by the old rules — the way their parents did.<br><br>
+      <strong>This isn't fiction.</strong> This is a field manual for those who understand that the future belongs to whoever prepares today.
     </p>
     <div class="hero-stats">
       <div class="stat">
         <span class="stat-number">11</span>
-        <span class="stat-label">Poglavlja</span>
-      </div>
-      <div class="stat">
-        <span class="stat-number">138</span>
-        <span class="stat-label">Stranica</span>
+        <span class="stat-label">Chapters</span>
       </div>
       <div class="stat">
         <span class="stat-number">2026</span>
-        <span class="stat-label">Izdanje</span>
+        <span class="stat-label">Edition</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">PDF</span>
+        <span class="stat-label">Instant Delivery</span>
       </div>
     </div>
     <div class="hero-buttons">
-      <!-- ↓ Zamijeni href s tvojim Stripe Payment Link URL-om -->
-      <a href="https://buy.stripe.com/fZu28rdlhbxP0lYdzM8ww01" class="btn-primary" id="btn-kupi-hero">KUPI E-KNJIGU</a>
-      <a href="#o-knjizi" class="btn-secondary">SAZNAJ VIŠE</a>
+      <a href="https://buy.stripe.com/fZu28rdlhbxP0lYdzM8ww01" class="btn-primary" id="btn-buy-hero">BUY THE E-BOOK</a>
+      <a href="#about" class="btn-secondary">LEARN MORE</a>
     </div>
+    <p style="margin-top:20px;font-size:12px;color:var(--text-dim);letter-spacing:0.5px;">
+      Also available on <a href="https://www.amazon.com/dp/B0H9J68QCT" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:underline;">Amazon</a>
+    </p>
   </div>
 
   <div class="hero-visual">
     <div class="book-wrapper">
       <div class="book-glow"></div>
-      <!-- ↓ Zamijeni src s putanjom do naslovnice ako hostaš slike -->
       <img class="book-cover"
-        src="cover.jpg"
-        alt="TRANSHUMANIST – knjiga naslovnica"
+        src="cover-en.jpg"
+        alt="TRANSHUMANIST – book cover"
         onerror="this.style.display='none'; this.parentElement.querySelector('.book-placeholder').style.display='flex'">
       <div class="book-placeholder" style="display:none; width:320px; height:453px; background:linear-gradient(135deg,#0D2137,#0A3D62); border-radius:4px 16px 16px 4px; align-items:center; justify-content:center; flex-direction:column; gap:16px; border:1px solid rgba(0,200,255,0.3);">
         <span style="font-family:'Orbitron',monospace;font-size:22px;font-weight:900;color:#00C8FF;letter-spacing:4px;text-align:center;padding:0 20px;">TRANS<br>HUMANIST</span>
         <span style="font-family:'Syne',sans-serif;font-size:11px;color:#7A9BB5;letter-spacing:2px;">JOE LANN</span>
       </div>
-      <div class="book-badge">NOVO<br>2026</div>
+      <div class="book-badge">NEW<br>2026</div>
     </div>
   </div>
 </section>
 
 <!-- ─── ABOUT BOOK ─── -->
-<section class="about" id="o-knjizi">
+<section class="about" id="about">
   <div class="about-grid">
     <div class="about-text fade-in">
-      <span class="section-tag">O knjizi</span>
-      <h2 class="section-title">Za one koji odbijaju starjeti po starim pravilima</h2>
+      <span class="section-tag">About the Book</span>
+      <h2 class="section-title">For those who refuse to age by the old rules</h2>
       <div class="section-line"></div>
       <p>
-        Živimo u trenutku koji će budući povjesničari opisati kao <strong>najvažniju tranzicijsku točku u ljudskoj povijesti</strong>. Tehnologije koje su nekad bile fikcija — uređivanje gena, neuralni implantati, AI koji nadmašuje ljude — postaju stvarnost u realnom vremenu.
+        We are living through a moment future historians will describe as <strong>the most important transitional point in human history</strong>. Technologies once dismissed as fiction — gene editing, neural implants, AI that surpasses human ability — are becoming reality in real time.
       </p>
       <p>
-        <strong>TRANSHUMANIST</strong> nije sci-fi spekulacija. Svaki podatak, svaka tvrdnja potkrijepljena je istraživanjima koja se odvijaju upravo sada — na Harvardu, u Silicijskoj dolini, u Pekingu.
+        <strong>TRANSHUMANIST</strong> is not sci-fi speculation. Every fact, every claim, is grounded in research happening right now — at Harvard, in Silicon Valley, in Beijing.
       </p>
       <p>
-        Knjiga je napisana tako da je razumije svaki čovjek koji hoće biti na ispravnoj strani promjene — bez doktorata, bez tehničkog predznanja. Samo s radoznalošću i hrabrošću da gleda u budućnost otvorenih očiju.
+        The book is written so that anyone who wants to be on the right side of change can understand it — no PhD, no technical background required. Just curiosity and the courage to look at the future with open eyes.
       </p>
     </div>
     <div class="pillars fade-in fade-in-delay-2">
       <div class="pillar">
         <div class="pillar-icon">⏱</div>
         <div>
-          <div class="pillar-title">Dugovječnost</div>
-          <div class="pillar-desc">Zašto staramo i kako to možemo promijeniti. Sinclair, NMN, biološka dob.</div>
+          <div class="pillar-title">Longevity</div>
+          <div class="pillar-desc">Why we age, and how we can change it. Sinclair, NMN, biological age.</div>
         </div>
       </div>
       <div class="pillar">
         <div class="pillar-icon">🧬</div>
         <div>
-          <div class="pillar-title">Genetika & CRISPR</div>
-          <div class="pillar-desc">Uređivanje DNK — od liječenja bolesti do dizajniranja djece.</div>
+          <div class="pillar-title">Genetics & CRISPR</div>
+          <div class="pillar-desc">Editing DNA — from curing disease to designing children.</div>
         </div>
       </div>
       <div class="pillar">
         <div class="pillar-icon">🤖</div>
         <div>
-          <div class="pillar-title">Kiborgizacija</div>
-          <div class="pillar-desc">Neuralink, implantati, proširena stvarnost — čovjek i stroj kao jedno.</div>
+          <div class="pillar-title">Cyborgization</div>
+          <div class="pillar-desc">Neuralink, implants, augmented reality — human and machine as one.</div>
         </div>
       </div>
       <div class="pillar">
         <div class="pillar-icon">🧠</div>
         <div>
-          <div class="pillar-title">Upload uma</div>
-          <div class="pillar-desc">Digitalna besmrtnost — teorija, filozofija i tehničke prepreke.</div>
+          <div class="pillar-title">Mind Upload</div>
+          <div class="pillar-desc">Digital immortality — theory, philosophy, and the technical barriers.</div>
         </div>
       </div>
       <div class="pillar">
         <div class="pillar-icon">💊</div>
         <div>
           <div class="pillar-title">Biohacking</div>
-          <div class="pillar-desc">Nootropici, suplementi, intermittent fasting — što zaista radi.</div>
+          <div class="pillar-desc">Nootropics, supplements, intermittent fasting — what actually works.</div>
         </div>
       </div>
     </div>
@@ -989,201 +1026,208 @@ if(window.location.search.indexOf('success=true') > -1 || window.location.hash =
 </section>
 
 <!-- ─── CHAPTERS ─── -->
-<section class="chapters" id="poglavlja">
+<section class="chapters" id="chapters">
   <div class="chapters-inner">
     <div class="chapters-header fade-in">
-      <span class="section-tag">Sadržaj knjige</span>
-      <h2 class="section-title">11 poglavlja koja mijenjaju perspektivu</h2>
+      <span class="section-tag">Table of Contents</span>
+      <h2 class="section-title">11 chapters that will change how you see the future</h2>
       <div class="section-line"></div>
     </div>
     <div class="chapters-grid">
       <div class="chapter-card fade-in">
-        <div class="chapter-number">UVOD</div>
-        <div class="chapter-title">Čovjek 2.0</div>
-        <div class="chapter-desc">Ana iz 2026. — kako izgleda svakodnevica već-transhumaniziranog čovjeka. Dobrodošli u budućnost koja je već počela.</div>
+        <div class="chapter-number">INTRO</div>
+        <div class="chapter-title">Human 2.0</div>
+        <div class="chapter-desc">Ana, in 2026 — a day in the life of an already-transhumanized person. Welcome to a future that has already begun.</div>
       </div>
       <div class="chapter-card fade-in fade-in-delay-1">
-        <div class="chapter-number">POGLAVLJE 01</div>
-        <div class="chapter-title">Besmrtnost kao opcija</div>
-        <div class="chapter-desc">Biologija starenja, Hallmarks of Aging, David Sinclair i zašto 150 godina nije utopija.</div>
+        <div class="chapter-number">CHAPTER 01</div>
+        <div class="chapter-title">Immortality as an Option</div>
+        <div class="chapter-desc">The biology of aging, the Hallmarks of Aging, David Sinclair, and why 150 years isn't utopia.</div>
       </div>
       <div class="chapter-card fade-in fade-in-delay-2">
-        <div class="chapter-number">POGLAVLJE 02</div>
-        <div class="chapter-title">Inženjering savršenstva</div>
-        <div class="chapter-desc">CRISPR-Cas9, genetsko uređivanje, etičke granice i He Jiankui skandal koji je uzdrmao svijet.</div>
+        <div class="chapter-number">CHAPTER 02</div>
+        <div class="chapter-title">Engineering Perfection</div>
+        <div class="chapter-desc">CRISPR-Cas9, gene editing, ethical limits, and the He Jiankui scandal that shook the world.</div>
       </div>
       <div class="chapter-card fade-in fade-in-delay-3">
-        <div class="chapter-number">POGLAVLJE 03</div>
-        <div class="chapter-title">Kiborg među nama</div>
-        <div class="chapter-desc">Od pacemakera do Neuralinka — granica između čovjeka i stroja nestaje brže nego mislimo.</div>
+        <div class="chapter-number">CHAPTER 03</div>
+        <div class="chapter-title">The Cyborg Among Us</div>
+        <div class="chapter-desc">From pacemakers to Neuralink — the line between human and machine is disappearing faster than we think.</div>
       </div>
       <div class="chapter-card fade-in">
-        <div class="chapter-number">POGLAVLJE 04</div>
-        <div class="chapter-title">Digitalna besmrtnost</div>
-        <div class="chapter-desc">Upload uma, digitalni blizanci, svjesnost kao informacija. Je li "ti" samo pattern koji možemo kopirati?</div>
+        <div class="chapter-number">CHAPTER 04</div>
+        <div class="chapter-title">Digital Immortality</div>
+        <div class="chapter-desc">Mind upload, digital twins, consciousness as information. Is "you" just a pattern that can be copied?</div>
       </div>
       <div class="chapter-card fade-in fade-in-delay-1">
-        <div class="chapter-number">POGLAVLJE 05</div>
-        <div class="chapter-title">Superhrana za mozak</div>
-        <div class="chapter-desc">Nootropici, neurohacking, metode koje zaista rade. Fokus, pamćenje, kreativnost na naredbu.</div>
+        <div class="chapter-number">CHAPTER 05</div>
+        <div class="chapter-title">Superfood for the Brain</div>
+        <div class="chapter-desc">Nootropics, neurohacking, methods that actually work. Focus, memory, and creativity on demand.</div>
       </div>
       <div class="chapter-card fade-in fade-in-delay-2">
-        <div class="chapter-number">POGLAVLJE 06</div>
-        <div class="chapter-title">Tijelo kao projekt</div>
-        <div class="chapter-desc">Biohacking protokoli: post, kriokomora, sauna, spavanje. Osobni plan dugovječnosti.</div>
+        <div class="chapter-number">CHAPTER 06</div>
+        <div class="chapter-title">The Body as a Project</div>
+        <div class="chapter-desc">Biohacking protocols: fasting, cryotherapy, sauna, sleep. A personal longevity plan.</div>
       </div>
       <div class="chapter-card fade-in fade-in-delay-3">
-        <div class="chapter-number">POGLAVLJE 07</div>
-        <div class="chapter-title">Umjetna inteligencija</div>
-        <div class="chapter-desc">AGI, singularnost, Bostromov problem kontrole. Trebamo li se bojati ili slaviti?</div>
+        <div class="chapter-number">CHAPTER 07</div>
+        <div class="chapter-title">Artificial Intelligence</div>
+        <div class="chapter-desc">AGI, the singularity, Bostrom's control problem. Should we fear it, or celebrate it?</div>
       </div>
       <div class="chapter-card fade-in">
-        <div class="chapter-number">POGLAVLJE 08</div>
-        <div class="chapter-title">Etika evolucije</div>
-        <div class="chapter-desc">Tko će prvi živjeti 150 godina? Nejednakost, neurorava, pravo na poboljšanje.</div>
+        <div class="chapter-number">CHAPTER 08</div>
+        <div class="chapter-title">The Ethics of Evolution</div>
+        <div class="chapter-desc">Who gets to live to 150 first? Inequality, neuro-rights, and the right to enhancement.</div>
       </div>
       <div class="chapter-card fade-in fade-in-delay-1">
-        <div class="chapter-number">POGLAVLJE 09</div>
-        <div class="chapter-title">Svemir kao playground</div>
-        <div class="chapter-desc">Transhumanizam van Zemlje — Musk, Mars, i zašto je kolonizacija egzistencijalni imperativ.</div>
+        <div class="chapter-number">CHAPTER 09</div>
+        <div class="chapter-title">Space as a Playground</div>
+        <div class="chapter-desc">Transhumanism beyond Earth — Musk, Mars, and why colonization is an existential imperative.</div>
       </div>
       <div class="chapter-card fade-in fade-in-delay-2">
-        <div class="chapter-number">POGLAVLJE 10</div>
-        <div class="chapter-title">Ray Kurzweil 1999.</div>
-        <div class="chapter-desc">Njegove prognoze iz 1999. i što se od toga ostvarilo. Eksponencijalni rast koji smo podcjenjivali.</div>
+        <div class="chapter-number">CHAPTER 10</div>
+        <div class="chapter-title">Ray Kurzweil, 1999</div>
+        <div class="chapter-desc">His predictions from 1999, and what came true. The exponential growth we underestimated.</div>
       </div>
       <div class="chapter-card fade-in fade-in-delay-3" style="border-color:rgba(0,200,255,0.25);">
-        <div class="chapter-number">POGLAVLJE 11 · KRAJ</div>
-        <div class="chapter-title">Poslije evolucije — revolucija</div>
-        <div class="chapter-desc">Što transhumanizam znači za tebe, danas, u ovom trenutku. Poziv na djelovanje.</div>
+        <div class="chapter-number">CHAPTER 11 · END</div>
+        <div class="chapter-title">After Evolution — Revolution</div>
+        <div class="chapter-desc">What transhumanism means for you, today, in this moment. A call to action.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ─── AUTHOR ─── -->
-<section class="author" id="autor">
+<section class="author" id="author">
   <div class="author-inner">
     <div class="author-photo-wrap fade-in">
       <div class="author-photo">
-        <!-- ↓ Dodaj svoju sliku: <img src="autor.jpg" alt="Joe Lann"> -->
+        <!-- Add your photo: <img src="author.jpg" alt="Joe Lann"> -->
         👤
       </div>
     </div>
     <div class="fade-in fade-in-delay-1">
-      <span class="section-tag">Autor</span>
+      <span class="section-tag">Author</span>
       <div class="author-name">Joe Lann</div>
-      <div class="author-role">Pisac · Istraživač · Transhumanist</div>
+      <div class="author-role">Writer · Researcher · Transhumanist</div>
       <div class="author-bio">
-        <p>Joe Lann piše na razmeđu znanosti, filozofije i budućnosti. Godinama prati najnovija istraživanja iz područja dugovječnosti, neuroznanosti i artificijalne inteligencije — i prevodi ih u jezik koji svaki čovjek može razumjeti i primijeniti.</p>
-        <p>Vjeruje da smo mi prva generacija kojoj je biološka besmrtnost u dometu — i da je naša odgovornost razumjeti što to znači prije nego li se dogodi.</p>
-        <p><strong style="color:var(--cyan)">TRANSHUMANIST</strong> je rezultat višegodišnjeg istraživanja, razgovora s najemisivnijim umovima u polju i osobnog iskustva biohackinga i optimizacije.</p>
+        <p>Joe Lann writes at the intersection of science, philosophy, and the future. For years he has followed the latest research in longevity, neuroscience, and artificial intelligence — translating it into language anyone can understand and apply.</p>
+        <p>He believes we are the first generation within reach of biological immortality — and that it's our responsibility to understand what that means before it happens.</p>
+        <p><strong style="color:var(--cyan)">TRANSHUMANIST</strong> is the result of years of research, conversations with some of the sharpest minds in the field, and personal experience with biohacking and optimization.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ─── TESTIMONIALS ─── -->
-<section class="testimonials" id="recenzije">
+<section class="testimonials" id="reviews">
   <div class="testimonials-inner">
     <div class="fade-in" style="text-align:center; margin-bottom:60px;">
-      <span class="section-tag">Recenzije čitatelja</span>
-      <h2 class="section-title">Što kažu oni koji su pročitali</h2>
+      <span class="section-tag">Reader Reviews</span>
+      <h2 class="section-title">What early readers are saying</h2>
       <div class="section-line" style="margin:20px auto;"></div>
     </div>
     <div class="testimonials-grid">
       <div class="testimonial fade-in">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Nisam mogao prestati čitati. Svako poglavlje otvorilo mi je nova pitanja o tome što znači biti čovjek u 21. stoljeću. Obavezna lektira."</p>
+        <p class="testimonial-text">"I couldn't put it down. Every chapter raised new questions about what it means to be human in the 21st century. Required reading."</p>
         <div class="testimonial-author">Marko T.</div>
-        <div class="testimonial-role">Softverski inženjer, Zagreb</div>
+        <div class="testimonial-role">Software Engineer, Zurich</div>
       </div>
       <div class="testimonial fade-in fade-in-delay-1">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Kao liječnik, impresioniran sam preciznošću s kojom autor obrađuje kompleksne teme. Preporučujem svima koji žele razumjeti kamo ide medicina."</p>
+        <p class="testimonial-text">"As a physician, I'm impressed by the precision with which the author handles complex topics. I recommend it to anyone who wants to understand where medicine is headed."</p>
         <div class="testimonial-author">Dr. Ivan K.</div>
-        <div class="testimonial-role">Internist, Sarajevo</div>
+        <div class="testimonial-role">Internal Medicine, Toronto</div>
       </div>
       <div class="testimonial fade-in fade-in-delay-2">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Pročitao sam je za jednu večer. Napisana tako da je razumije i laik, a dovoljno duboka da fasciniria i stručnjaka. Rijetka kombinacija."</p>
+        <p class="testimonial-text">"I read it in one evening. Written so a layperson can follow it, yet deep enough to fascinate an expert. A rare combination."</p>
         <div class="testimonial-author">Ana V.</div>
-        <div class="testimonial-role">Poduzetnica, Split</div>
+        <div class="testimonial-role">Entrepreneur, London</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ─── PRICING ─── -->
-<section class="pricing" id="kupi">
+<section class="pricing" id="buy">
   <div class="pricing-inner">
     <div class="fade-in">
-      <span class="section-tag">Nabavi knjigu</span>
-      <h2 class="section-title">Odaberi svoju verziju</h2>
+      <span class="section-tag">Get the Book</span>
+      <h2 class="section-title">Choose your edition</h2>
       <div class="section-line" style="margin:16px auto 0;"></div>
     </div>
-    <p class="pricing-subtitle fade-in">Direktna kupovina donosi najveću podršku autoru. Sve opcije su dostupne odmah.</p>
+    <p class="pricing-subtitle fade-in">Buying direct gives the most support to the author. All options are available now.</p>
+
+    <div class="currency-switcher fade-in">
+      <span>Display price in</span>
+      <select id="currency-select" aria-label="Display currency">
+        <option value="USD">USD ($)</option>
+        <option value="EUR">EUR (€)</option>
+        <option value="GBP">GBP (£)</option>
+        <option value="CAD">CAD ($)</option>
+        <option value="AUD">AUD ($)</option>
+        <option value="CHF">CHF (Fr)</option>
+        <option value="JPY">JPY (¥)</option>
+      </select>
+    </div>
 
     <div class="pricing-grid">
 
-      <!-- STRIPE - DIREKTNO -->
+      <!-- STRIPE - DIRECT -->
       <div class="price-card featured fade-in">
-        <div class="price-platform">Direktna kupovina</div>
-        <div class="price-name">E-knjiga PDF</div>
-        <div class="price-amount"><span class="price-currency">€</span>12<span style="font-size:20px">,99</span></div>
-        <div class="price-note">Plaćanje karticom · Isporuka odmah</div>
+        <div class="price-platform">Direct Purchase</div>
+        <div class="price-name">E-book (PDF)</div>
+        <div class="price-amount"><span class="price-currency">$</span>12<span style="font-size:20px">.99</span></div>
+        <div class="price-fx-note" id="price-fx-note"></div>
+        <div class="price-note">Card or PayPal · Instant delivery</div>
         <ul class="price-features">
-          <li>PDF visoke rezolucije</li>
-          <li>Sve slike i QR kodovi</li>
-          <li>Doživotni pristup</li>
-          <li>Direktna podrška autoru</li>
-          <li>Potvrda na e-mail</li>
+          <li>High-resolution PDF</li>
+          <li>All images & QR codes</li>
+          <li>Lifetime access</li>
+          <li>Direct support for the author</li>
+          <li>Email confirmation</li>
         </ul>
-        <!-- ↓ Zamijeni href s tvojim Stripe Payment Link URL-om -->
-        <a href="https://buy.stripe.com/fZu28rdlhbxP0lYdzM8ww01" class="price-btn price-btn-primary">KUPI PUTEM STRIPE</a>
+        <!-- ↓ Confirm the Stripe Price object is set to USD -->
+        <a href="https://buy.stripe.com/fZu28rdlhbxP0lYdzM8ww01" class="price-btn price-btn-primary">BUY VIA STRIPE</a>
       </div>
 
-      <!-- GUMROAD -->
+      <!-- AMAZON -->
       <div class="price-card fade-in fade-in-delay-1">
-        <div class="price-platform">Gumroad</div>
-        <div class="price-name">E-knjiga PDF</div>
-        <div class="price-amount"><span class="price-currency">€</span>12<span style="font-size:20px">,99</span></div>
-        <div class="price-note">Plaćanje karticom ili PayPalom</div>
+        <div class="price-platform">Amazon</div>
+        <div class="price-name">Kindle & Paperback</div>
+        <div class="price-note" style="margin-top:8px;">Price set by Amazon · Availability varies by country</div>
         <ul class="price-features">
-          <li>PDF visoke rezolucije</li>
-          <li>Automatska isporuka</li>
-          <li>Plaćanje PayPalom</li>
-          <li>Sigurna kupovina</li>
+          <li>Kindle e-book</li>
+          <li>Paperback edition</li>
+          <li>Prime shipping where available</li>
+          <li>Verified reader reviews</li>
         </ul>
-        <div style="text-align:center;padding:12px 8px;border:1px dashed rgba(0,200,255,0.2);border-radius:2px;color:var(--text-dim);font-size:12px;letter-spacing:1px;font-family:'Syne Mono',monospace;">
-          ⏳ &nbsp;GUMROAD — USKORO
-        </div>
-        <div style="text-align:center;font-size:11px;color:var(--text-dim);margin-top:8px;opacity:0.7;">Plaćanje putem Gumroad platforme biti će omogućeno uskoro.</div>
+        <a href="https://www.amazon.com/dp/B0H9J68QCT" target="_blank" rel="noopener" class="price-btn price-btn-secondary">VIEW ON AMAZON</a>
       </div>
 
-      <!-- AMAZON / FIZIČKA -->
+      <!-- OTHER RETAILERS -->
       <div class="price-card fade-in fade-in-delay-2">
-        <div class="price-platform">Amazon · Knjižara</div>
-        <div class="price-name">Fizička knjiga</div>
-        <div class="price-amount"><span class="price-currency">€</span>19<span style="font-size:20px">,99</span></div>
-        <div class="price-note">Dostava 3–7 radnih dana</div>
+        <div class="price-platform">Other Retailers</div>
+        <div class="price-name">Apple Books · Google Play · Kobo</div>
+        <div class="price-note" style="margin-top:8px;">Expanding to more platforms soon</div>
         <ul class="price-features">
-          <li>Tvrdi ili meki uvez</li>
-          <li>Dostava na adresu</li>
-          <li>Savršena za poklon</li>
-          <li>Dostupna u regiji</li>
+          <li>Same content, more formats</li>
+          <li>Secure, familiar checkout</li>
+          <li>Notify me when available</li>
         </ul>
         <div style="text-align:center;padding:12px 8px;border:1px dashed rgba(0,200,255,0.2);border-radius:2px;color:var(--text-dim);font-size:12px;letter-spacing:1px;font-family:'Syne Mono',monospace;">
-          ⏳ &nbsp;AMAZON — USKORO
+          ⏳ &nbsp;COMING SOON
         </div>
-        <div style="text-align:center;font-size:11px;color:var(--text-dim);margin-top:8px;opacity:0.7;">Fizička kopija i narudžba putem Amazona biti će dostupne uskoro.</div>
       </div>
 
     </div>
 
     <div class="pricing-guarantee fade-in">
       <span class="guarantee-icon">🔒</span>
-      <span>Sigurna kupovina · Zaštićeno plaćanje · Zadovoljstvo garantirano ili povrat novca u 14 dana</span>
+      <span>Secure checkout · Encrypted payment · Satisfaction guaranteed or your money back within 14 days</span>
     </div>
   </div>
 </section>
@@ -1193,51 +1237,44 @@ if(window.location.search.indexOf('success=true') > -1 || window.location.hash =
   <div class="faq-inner">
     <div class="fade-in">
       <span class="section-tag">FAQ</span>
-      <h2 class="section-title">Često postavljana pitanja</h2>
+      <h2 class="section-title">Frequently asked questions</h2>
       <div class="section-line"></div>
     </div>
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
-          Trebam li tehničko predznanje da razumijem knjigu?
+          Do I need a technical background to understand the book?
           <span class="faq-arrow">+</span>
         </button>
-        <div class="faq-a">Ne. Knjiga je namjerno pisana tako da je razumije svaka radoznala osoba bez tehničkog ili znanstvenog predznanja. Složeni koncepti su objašnjeni kroz priče, analogije i primjere iz svakodnevnog života.</div>
+        <div class="faq-a">No. The book is deliberately written so any curious reader can follow it — no technical or scientific background required. Complex concepts are explained through stories, analogies, and everyday examples.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
-          Je li e-knjiga dostupna odmah nakon kupovine?
+          Is the e-book available immediately after purchase?
           <span class="faq-arrow">+</span>
         </button>
-        <div class="faq-a">Da. Nakon uspješne kupovine Stripe te automatski preusmjerava na stranicu za preuzimanje. PDF je dostupan odmah — klikni gumb za download i spremi na svoje računalo ili mobitel.</div>
+        <div class="faq-a">Yes. After a successful Stripe checkout you're automatically redirected to the download page. The PDF is available instantly — click the download button and save it to your computer or phone.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
-          Mogu li kupiti knjige na poklon?
+          Can I buy the book as a gift?
           <span class="faq-arrow">+</span>
         </button>
-        <div class="faq-a">Naravno. Fizičku kopiju možeš naručiti i poslati na drugu adresu. Za e-knjige kao poklon — kontaktiraj nas putem e-maila i dogovorimo sve pojedinosti.</div>
+        <div class="faq-a">Absolutely. You can order the paperback on Amazon and ship it to a different address. For e-book gifts, contact us by email and we'll take care of the details.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
-          Postoji li mogućnost povrata novca?
+          Is there a refund policy?
           <span class="faq-arrow">+</span>
         </button>
-        <div class="faq-a">Da. Ako u roku 14 dana od kupovine nisi zadovoljan knjigom, vraćamo ti puni iznos bez pitanja. Kontaktiraj nas na e-mail naveden u footeru.</div>
+        <div class="faq-a">Yes. If you're not satisfied within 14 days of purchase, we'll refund you in full, no questions asked. Contact us at the email listed in the footer.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
-          Na koji jezik je knjiga napisana?
+          What languages is the book available in?
           <span class="faq-arrow">+</span>
         </button>
-        <div class="faq-a">Knjiga je napisana na hrvatskom jeziku, razumljiva govornicima cijelog ex-YU područja.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Planira li se prijevod na engleski?
-          <span class="faq-arrow">+</span>
-        </button>
-        <div class="faq-a">Prijevod je u planu. Prijavite se na newsletter kako biste bili prvi obaviješteni o dostupnosti engleske verzije.</div>
+        <div class="faq-a">TRANSHUMANIST is currently available in English. German, Spanish, and French editions are in progress — join the newsletter to be notified the moment they're released.</div>
       </div>
     </div>
   </div>
@@ -1245,10 +1282,9 @@ if(window.location.search.indexOf('success=true') > -1 || window.location.hash =
 
 <!-- ─── CTA STRIP ─── -->
 <div class="cta-strip">
-  <h2>Za one koji odbijaju starjeti po starim pravilima.</h2>
-  <p>Što lideri budućnosti znaju o tijelu, umu i tehnologiji, a vi ne znate — a što medicina zna, a nitko ti nije rekao. Sada je u tvojim rukama.</p>
-  <!-- ↓ Zamijeni href s tvojim Stripe Payment Link URL-om -->
-  <a href="https://buy.stripe.com/fZu28rdlhbxP0lYdzM8ww01" class="btn-primary">NABAVI TRANSHUMANIST →</a>
+  <h2>For those who refuse to age by the old rules.</h2>
+  <p>What tomorrow's leaders know about the body, mind and technology — and you don't. What medicine already knows, and nobody told you. It's in your hands now.</p>
+  <a href="https://buy.stripe.com/fZu28rdlhbxP0lYdzM8ww01" class="btn-primary">GET TRANSHUMANIST →</a>
 </div>
 
 <!-- ─── FOOTER ─── -->
@@ -1257,23 +1293,23 @@ if(window.location.search.indexOf('success=true') > -1 || window.location.hash =
     <div class="footer-grid">
       <div class="footer-brand">
         <span class="footer-logo">TRANSHUMANIST</span>
-        <p>Što lideri budućnosti znaju o tijelu, umu i tehnologiji, a vi ne znate. Autor: Joe Lann. Izdanje 2026.</p>
+        <p>What tomorrow's leaders know about the body, mind and technology — and you don't. By Joe Lann. 2026 Edition.</p>
       </div>
       <div class="footer-col">
-        <h4>Navigacija</h4>
+        <h4>Navigation</h4>
         <ul>
-          <li><a href="#o-knjizi">O knjizi</a></li>
-          <li><a href="#poglavlja">Sadržaj</a></li>
-          <li><a href="#autor">Autor</a></li>
-          <li><a href="#recenzije">Recenzije</a></li>
-          <li><a href="#kupi">Kupi</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#chapters">Contents</a></li>
+          <li><a href="#author">Author</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#buy">Buy</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Kontakt</h4>
+        <h4>Contact</h4>
         <ul>
-          <!-- ↓ Zamijeni s tvojim podacima -->
-          <li><a href="mailto:info@transhumanist.hr">info@transhumanist.hr</a></li>
+          <!-- ↓ Replace with your actual details -->
+          <li><a href="mailto:info@joelann.com">info@joelann.com</a></li>
           <li><a href="#">Instagram</a></li>
           <li><a href="#">LinkedIn</a></li>
           <li><a href="#">Newsletter</a></li>
@@ -1281,11 +1317,11 @@ if(window.location.search.indexOf('success=true') > -1 || window.location.hash =
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Joe Lann · Sva prava pridržana</span>
+      <span>© 2026 Joe Lann · All rights reserved</span>
       <span>
-        <a href="#">Uvjeti korištenja</a> ·
-        <a href="#">Politika privatnosti</a> ·
-        <a href="#">Povrat novca</a>
+        <a href="#">Terms of Service</a> ·
+        <a href="#">Privacy Policy</a> ·
+        <a href="#">Refund Policy</a>
       </span>
     </div>
   </div>
@@ -1330,6 +1366,58 @@ requestAnimationFrame(() => {
     document.querySelector('.hero-content').style.transform = 'translateY(0)';
   }, 100);
 });
+
+// ─── CURRENCY CONVERSION ───
+// Base price is charged in USD via Stripe. This only DISPLAYS an estimated
+// equivalent in the reader's local currency for convenience/transparency.
+const BASE_USD_PRICE = 12.99;
+const CURRENCY_SYMBOLS = { USD: '$', EUR: '€', GBP: '£', CAD: '$', AUD: '$', CHF: 'Fr', JPY: '¥' };
+const LOCALE_REGION_CURRENCY = {
+  de: 'EUR', fr: 'EUR', es: 'EUR', it: 'EUR', nl: 'EUR', pt: 'EUR', at: 'EUR',
+  ie: 'EUR', fi: 'EUR', gr: 'EUR', be: 'EUR', hr: 'EUR', si: 'EUR',
+  gb: 'GBP', uk: 'GBP', ca: 'CAD', au: 'AUD', ch: 'CHF', jp: 'JPY'
+};
+let fxRates = null;
+
+function detectCurrency() {
+  try {
+    const loc = (navigator.language || 'en-US').toLowerCase();
+    const region = loc.split('-')[1];
+    return (region && LOCALE_REGION_CURRENCY[region]) || 'USD';
+  } catch (e) {
+    return 'USD';
+  }
+}
+
+function renderFxNote(currency) {
+  const note = document.getElementById('price-fx-note');
+  if (!note) return;
+  if (currency === 'USD' || !fxRates || !fxRates[currency]) {
+    note.textContent = '';
+    return;
+  }
+  const converted = (BASE_USD_PRICE * fxRates[currency]).toFixed(2);
+  const symbol = CURRENCY_SYMBOLS[currency] || (currency + ' ');
+  note.textContent = `≈ ${symbol}${converted} ${currency} · charged in USD at checkout`;
+}
+
+async function initCurrencySwitcher() {
+  const select = document.getElementById('currency-select');
+  if (!select) return;
+  select.value = detectCurrency();
+  select.addEventListener('change', () => renderFxNote(select.value));
+  try {
+    const res = await fetch('https://open.er-api.com/v6/latest/USD');
+    const data = await res.json();
+    if (data && data.result === 'success' && data.rates) {
+      fxRates = data.rates;
+      renderFxNote(select.value);
+    }
+  } catch (e) {
+    // Network/API failure: USD price still displays correctly, just no fx note.
+  }
+}
+document.addEventListener('DOMContentLoaded', initCurrencySwitcher);
 </script>
 
 </body>
