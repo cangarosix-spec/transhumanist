@@ -855,6 +855,61 @@ section { padding: 100px 80px; }
 }
 .cta-strip .btn-primary { position: relative; }
 
+/* ─── CONTACT ─── */
+.contact {
+  background: var(--navy-2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.contact-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+.contact-subtitle {
+  font-size: 16px;
+  color: var(--text-dim);
+  margin: 16px auto 40px;
+  line-height: 1.7;
+}
+.contact-form { text-align: left; }
+.contact-form label {
+  display: block;
+  font-family: 'Syne Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+.contact-form .form-row { margin-bottom: 20px; }
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  background: var(--navy-3);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 14px 16px;
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  transition: border-color 0.2s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--border-bright);
+}
+.contact-form textarea { min-height: 140px; resize: vertical; }
+.contact-form button {
+  width: 100%;
+  cursor: pointer;
+}
+.contact-status {
+  margin-top: 16px;
+  font-size: 14px;
+  text-align: center;
+  min-height: 20px;
+}
+.contact-status.success { color: var(--cyan); }
+.contact-status.error { color: #ff6b6b; }
+
 /* ─── FOOTER ─── */
 footer {
   background: var(--navy-2);
@@ -1466,6 +1521,37 @@ footer {
   <a href="https://buy.stripe.com/7sYaEXchd31j7OqbrE8ww02" class="btn-primary">GET TRANSHUMANIST →</a>
 </div>
 
+<!-- ─── CONTACT ─── -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="fade-in">
+      <span class="section-tag">Get in Touch</span>
+      <h2 class="section-title">Questions? Send a Message</h2>
+      <div class="section-line" style="margin:16px auto 0;"></div>
+    </div>
+    <p class="contact-subtitle fade-in">Order issues, download trouble, or just want to say hi — this goes straight to the author.</p>
+    <form class="contact-form fade-in" id="contact-form">
+      <!-- ↓ Get a free access key at web3forms.com, then paste it below -->
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="form-row">
+        <label for="contact-name">Name</label>
+        <input type="text" id="contact-name" name="name" required>
+      </div>
+      <div class="form-row">
+        <label for="contact-email">Email</label>
+        <input type="email" id="contact-email" name="email" required>
+      </div>
+      <div class="form-row">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="btn-primary" id="contact-submit">SEND MESSAGE</button>
+      <div class="contact-status" id="contact-status"></div>
+    </form>
+  </div>
+</section>
+
 <!-- ─── FOOTER ─── -->
 <footer>
   <div class="footer-inner">
@@ -1488,8 +1574,7 @@ footer {
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <!-- ↓ Replace with your actual details -->
-          <li><a href="mailto:info@joelann.com">info@joelann.com</a></li>
+          <li><a href="#contact">Contact Form</a></li>
           <li><a href="#">Instagram</a></li>
           <li><a href="#">LinkedIn</a></li>
           <li><a href="#">Newsletter</a></li>
@@ -1525,6 +1610,41 @@ function toggleFaq(btn) {
   const isOpen = item.classList.contains('open');
   document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
   if (!isOpen) item.classList.add('open');
+}
+
+// ─── CONTACT FORM ───
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const status = document.getElementById('contact-status');
+    const submitBtn = document.getElementById('contact-submit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'SENDING...';
+    status.textContent = '';
+    status.className = 'contact-status';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(contactForm))),
+      });
+      const data = await res.json();
+      if (data.success) {
+        status.textContent = 'Message sent — thank you! We\'ll get back to you soon.';
+        status.classList.add('success');
+        contactForm.reset();
+      } else {
+        throw new Error(data.message || 'Send failed');
+      }
+    } catch (err) {
+      status.textContent = 'Something went wrong. Please try again or email us directly.';
+      status.classList.add('error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'SEND MESSAGE';
+    }
+  });
 }
 
 // ─── NAV SCROLL EFFECT ───
