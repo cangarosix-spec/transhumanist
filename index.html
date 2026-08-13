@@ -183,6 +183,16 @@ h1.hero-title {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+.hero-title-prefix {
+  display: block;
+  font-size: clamp(18px, 2.4vw, 26px);
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: 6px;
+  margin-bottom: 4px;
+  background: none;
+  -webkit-text-fill-color: var(--cyan);
+}
 .hero-subtitle {
   font-size: 15px;
   color: var(--text-dim);
@@ -958,7 +968,7 @@ footer {
 <!-- ─── NAVIGATION ─── -->
 
 <nav>
-  <a href="#" class="nav-logo">TRANSHUMANIST</a>
+  <a href="#" class="nav-logo">MAN+ | TRANSHUMANIST</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#chapters">Contents</a></li>
@@ -972,8 +982,8 @@ footer {
 <!-- ─── HERO ─── -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-eyebrow">MAN+ | Joe Lann · 2026</div>
-    <h1 class="hero-title">TRANS<br>HUMANIST</h1>
+    <div class="hero-eyebrow">Joe Lann · 2026</div>
+    <h1 class="hero-title"><span class="hero-title-prefix">MAN+</span>TRANS<br>HUMANIST</h1>
     <p class="hero-subtitle">What tomorrow's leaders know about the body, mind and technology — and you don't</p>
     <p style="font-size:13px;color:var(--text-dim);letter-spacing:1px;margin-top:-20px;margin-bottom:32px;font-family:'Syne Mono',monospace;">A guide to conscious evolution in the age of artificial intelligence</p>
     <p class="hero-description">
@@ -1456,7 +1466,7 @@ footer {
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <span class="footer-logo">TRANSHUMANIST</span>
+        <span class="footer-logo">MAN+ | TRANSHUMANIST</span>
         <p><strong style="color:var(--text)">MAN+ | TRANSHUMANIST</strong> — What tomorrow's leaders know about the body, mind and technology — and you don't. By Joe Lann. 2026 Edition.</p>
       </div>
       <div class="footer-col">
