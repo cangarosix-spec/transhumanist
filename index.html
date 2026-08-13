@@ -888,25 +888,6 @@ footer {
 
 <!-- ─── NAVIGATION ─── -->
 
-<!-- DOWNLOAD BANNER -->
-<div id="dl-banner" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(3,11,24,0.97);flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:32px;text-align:center;">
-  <div style="font-family:'Orbitron',monospace;font-size:56px;color:#00C8FF;">✓</div>
-  <h2 style="font-family:'Orbitron',monospace;font-size:26px;color:#fff;letter-spacing:2px;">THANK YOU FOR YOUR PURCHASE!</h2>
-  <p style="font-size:17px;color:#D8E8F5;max-width:500px;line-height:1.8;">Your book is ready. Click the button below and save the PDF to your computer or phone.</p>
-  <!-- IMPORTANT: verify this Drive folder serves the ENGLISH edition PDF, not the original Croatian file -->
-  <a href="https://drive.google.com/drive/folders/1yhDOhyKNp5FFIxlVyKwp03zBQnye7w5v?usp=drive_link" target="_blank" style="background:linear-gradient(135deg,#00C8FF,#0080CC);color:#030B18;padding:18px 48px;font-family:'Orbitron',monospace;font-size:14px;font-weight:700;letter-spacing:2px;text-decoration:none;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);box-shadow:0 0 40px rgba(0,200,255,0.4);display:inline-block;margin-top:8px;">
-    ↓ &nbsp; DOWNLOAD PDF
-  </a>
-  <p style="font-size:13px;color:#7A9BB5;margin-top:8px;">A purchase confirmation has been sent to your email.<br>For support: <a href="mailto:info@joelann.com" style="color:#00C8FF;">info@joelann.com</a></p>
-  <button onclick="document.getElementById('dl-banner').style.display='none'" style="background:transparent;border:1px solid rgba(0,200,255,0.2);color:#7A9BB5;padding:8px 20px;cursor:pointer;font-size:12px;margin-top:8px;">Continue to site &rarr;</button>
-</div>
-<script>
-if(window.location.search.indexOf('success=true') > -1 || window.location.hash === '#thankyou'){
-  var b = document.getElementById('dl-banner');
-  b.style.display = 'flex';
-}
-</script>
-
 <nav>
   <a href="#" class="nav-logo">TRANSHUMANIST</a>
   <ul class="nav-links">
